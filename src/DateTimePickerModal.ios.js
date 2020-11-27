@@ -150,10 +150,12 @@ export class DateTimePickerModal extends React.PureComponent {
           ]}
         >
           <HeaderComponent label={headerTextIOS} />
-          <PickerComponent
-            display="spinner"
-            {...otherProps}
+          <DateTimePicker
+            testID="dateTimePicker"
             value={this.state.currentDate}
+            mode="date"
+            is24Hour={true}
+            display="inline"
             onChange={this.handleChange}
           />
           <ConfirmButtonComponent
@@ -162,6 +164,11 @@ export class DateTimePickerModal extends React.PureComponent {
             label={confirmTextIOS}
           />
         </View>
+      <CancelButtonComponent
+          isDarkModeEnabled={_isDarkModeEnabled}
+          onPress={this.handleCancel}
+          label={cancelTextIOS}
+        />
         <CancelButtonComponent
           isDarkModeEnabled={_isDarkModeEnabled}
           onPress={this.handleCancel}
